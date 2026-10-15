@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overscroll-behavior: none;
+  background-color: #f7f9ff;
+  color: #121d26;
+}
+
+main > :first-child {
+  margin-top: 0 !important;
+}
+
+main > :last-child {
+  margin-bottom: 0 !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Contour clavier par défaut ; dans la couche base pour qu'un `outline-none` explicite reste prioritaire. */
+@layer base {
+  :focus-visible {
+    outline: 3px solid theme("colors.primary");
+    outline-offset: 2px;
+  }
+}
+
+[data-rule][aria-invalid="true"] {
+  @apply ring-2 ring-error bg-error/5;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  user-select: none;
+}
